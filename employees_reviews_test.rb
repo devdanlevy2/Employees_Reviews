@@ -55,8 +55,24 @@ class EmployeesReviewsTest < Minitest::Test
     d.add_employee(e)
     d.add_employee(f)
     assert_equal 400000.00, d.department_salary
-
   end
 
+  def test_08_employee_review
+    e = Employee.new(employee_name: "Greg", employee_email_address: "Greg@yahoo.com", employee_phone_number: "7179991111", employee_salary: 100000.00, employee_review: "NEGATIVE REVIEW 1:
+    Zeke is a very positive person and encourages those around him, but he has not done well technically this year.  There are two areas in which Zeke has room for improvement.  First,
+    when communicating verbally (and sometimes in writing), he has a tendency to use more words than are required.  This conversational style does put people at ease, which is valuable,
+    but it often makes the meaning difficult to isolate, and can cause confusion.
+    Second, when discussing new requirements with project managers, less of the information is retained by Zeke long-term than is expected.  This has a few negative co")
+
+    f = Employee.new(employee_name: "Greg", employee_email_address: "Greg@yahoo.com", employee_phone_number: "7179991111", employee_salary: 100000.00, employee_review: "POSITIVE REVIEW 1:
+    Xavier is a huge asset to SciMed and is a pleasure to work with.  He quickly knocks out tasks assigned to him, implements code that rarely needs to be revisited, and is always willing
+    to help others despite his heavy workload.  When Xavier leaves on vacation, everyone wishes he didn't have to go
+    Last year, the only concerns with Xavier performance were around ownership.  In the past twelve months, he has successfully taken full ownership of both Acme and Bricks, Inc.  Aside from
+    some false starts with estimates on Acme, clients are happy with his work and responsiveness, which is everything that his managers could ask for")
+    assert e
+    assert f
+    refute_equal "", e.employee_review
+    refute_equal "", f.employee_review
+  end
 
 end
