@@ -17,12 +17,22 @@ class EmployeesReviewsTest < Minitest::Test
 
   def test_02_employee_class_exists
     assert Employee
-    e = Employee.new("Dave", "Dave@gmail.com", 9195555555, 75000)
+    e = Employee.new("Greg", "Greg@yahoo.com", 7179991111, 100000.00)
     assert e
-    assert_equal "Dave", e.employee_name
-    assert_equal "Dave@gmail.com", e.employee_email_address
-    assert_equal 9195555555, e.employee_phone_number
-    assert_equal 75000, e.employee_salary
+    assert_equal "Greg", e.employee_name
+    assert_equal "Greg@yahoo.com", e.employee_email_address
+    assert_equal 7179991111, e.employee_phone_number
+    assert_equal 100000.00, e.employee_salary
 
   end
+
+  def test_03_Employee_Added_To_Department
+   d = Department.new("Blidgets")
+   e = Employee.new("Greg", "Greg@yahoo.com", 7179991111, 100000.00)
+   d.add_employee(e)
+   assert_equal [e], d.employees
+  end
+
+
+
 end
