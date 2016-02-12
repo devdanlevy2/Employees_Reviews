@@ -1,9 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'byebug'
+#require 'byebug'
 
-
-#Note: This line is going to fail first.
 require './employee_review.rb'
 
 class EmployeesReviewsTest < Minitest::Test
@@ -48,6 +46,16 @@ class EmployeesReviewsTest < Minitest::Test
   def test_06_get_a_departments_name
     d = Department.new("Blidgets")
     assert_equal "Blidgets", d.department_name
+  end
+
+  def test_07_departments_total_salary
+    d = Department.new("Blidgets")
+    e = Employee.new(employee_name:"Greg", employee_email_address:"Greg@yahoo.com", employee_phone_number:"7179991111", employee_salary:100000.00)
+    f = Employee.new(employee_name:"Greg", employee_email_address:"Greg@yahoo.com", employee_phone_number:"7179991111", employee_salary:300000.00)
+    d.add_employee(e)
+    d.add_employee(f)
+    assert_equal 400000.00, d.department_salary
+
   end
 
 
