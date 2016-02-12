@@ -10,4 +10,10 @@ class Department
     @employees << employee
   end
 
+  def department_salary
+    sum = 0
+    @employees.each {|d| sum += d.employee_salary}
+    sum
+  end
+
 end
