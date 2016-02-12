@@ -33,6 +33,10 @@ class EmployeesReviewsTest < Minitest::Test
    assert_equal [e], d.employees
   end
 
+  def test_04_Get_an_Employees_Name
+    assert e = Employee.new("Greg", "Greg@yahoo.com", 7179991111, 100000.00)
+    assert_equal "Greg", e.employee_name
+  end
 
 
 end
