@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-#require 'byebug'
+require 'byebug'
 
 require './employee_review.rb'
 
@@ -21,7 +21,6 @@ class EmployeesReviewsTest < Minitest::Test
     assert_equal "Greg@yahoo.com", e.employee_email_address
     assert_equal "7179991111", e.employee_phone_number
     assert_equal 100000.00, e.employee_salary
-
   end
 
   def test_03_employee_added_to_department
@@ -96,8 +95,22 @@ class EmployeesReviewsTest < Minitest::Test
     employee_review: "POSITIVE REVIEW 1: Xavier is a huge asset to SciMed and is a pleasure to work with.  He quickly knocks out tasks assigned to him, yeah, yeah, he's awesome")
     f.employee_raise
     assert_in_delta 110000.00, f.employee_salary
-
   end
 
-
+  def test_11_department_raises
+    e = Employee.new(employee_name: "Greg", employee_email_address: "Greg@yahoo.com", employee_phone_number: "7179991111", employee_salary: 80000.00, employee_satisfaction: true,
+    employee_review: "Wowsers, Greg is the bomb")
+    f = Employee.new(employee_name: "Richard", employee_email_address: "Greg@yahoo.com", employee_phone_number: "7179991111", employee_salary: 90000.00, employee_satisfaction: true,
+    employee_review: "Hey Bud, Richard brings donuts every thursday!")
+    g = Employee.new(employee_name: "Danny", employee_email_address: "Greg@yahoo.com", employee_phone_number: "7179991111", employee_salary: 80000.00, employee_satisfaction: false,
+    employee_review: "Oooh, Danny is always late and got everyone sick with the ebola!")
+    d = Department.new("Blidgets")
+    d.add_employee(e)
+    d.add_employee(f)
+    d.add_employee(g)
+    d.distribute_raises(20000.00)
+    assert_in_delta 90000.00, e.employee_salary, 0.01
+    assert_in_delta 100000.00, f.employee_salary, 0.01
+    assert_in_delta 80000.00, g.employee_salary, 0.01
+    end
 end

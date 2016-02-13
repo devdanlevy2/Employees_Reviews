@@ -3,5 +3,7 @@ require './employee.rb'
 
 
 
+
+
 # postive_words = []
-#positive = @reviews/\b#{words}\b/i 
+#positive = @reviews/\b#{words}\b/i

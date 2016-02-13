@@ -1,7 +1,6 @@
 class Employee
-  attr_reader :employee_name, :employee_email_address, :employee_phone_number,
-  :employee_salary, :employee_satisfaction
-  attr_accessor :employee_review
+  attr_reader :employee_name, :employee_email_address, :employee_phone_number, :employee_satisfaction
+  attr_accessor :employee_review, :employee_salary
 
   def initialize(employee_name: nil, employee_email_address: nil, employee_phone_number: nil,
      employee_salary: nil, employee_review: nil, employee_satisfaction: nil)
