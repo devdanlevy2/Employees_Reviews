@@ -91,4 +91,13 @@ class EmployeesReviewsTest < Minitest::Test
     assert_equal "true", f.employee_satisfaction
   end
 
+  def test_10_employee_raise
+    f = Employee.new(employee_name: "Greg", employee_email_address: "Greg@yahoo.com", employee_phone_number: "7179991111", employee_salary: 100000.00, employee_satisfaction: "true",
+    employee_review: "POSITIVE REVIEW 1: Xavier is a huge asset to SciMed and is a pleasure to work with.  He quickly knocks out tasks assigned to him, yeah, yeah, he's awesome")
+    f.employee_raise
+    assert_in_delta 110000.00, f.employee_salary
+
+  end
+
+
 end
