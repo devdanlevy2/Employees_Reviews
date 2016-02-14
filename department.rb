@@ -27,11 +27,7 @@ class Department
 
 
   def department_block_raises(raise_budget)
-    raises_array = []
-    @employees.each do |i|
-      raises_array << yield(i)
-      byebug
-      raises_array.each {|i| i.employee_salary += raise_budget / @raises_array.length}
-    end
+    raises_array = @employees.select {|i| yield(i)}
+    raises_array.each{|i| i.employee_salary += (raise_budget / raises_array.length)}
   end
 end

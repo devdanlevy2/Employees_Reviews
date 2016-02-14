@@ -151,7 +151,7 @@ class EmployeesReviewsTest < Minitest::Test
     d.add_employee(e)
     d.add_employee(f)
     d.add_employee(g)
-    d.department_block_raises(15000) {|i| i.employee_salary < 100000.00}
+    d.department_block_raises(15000.00) {|i| i.employee_salary< 100000.00}
     assert_in_delta 85000.00, e.employee_salary, 0.01
     assert_in_delta 95000.00, f.employee_salary, 0.01
     assert_in_delta 85000.00, g.employee_salary, 0.01
