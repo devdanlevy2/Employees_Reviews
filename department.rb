@@ -1,3 +1,4 @@
+require 'byebug'
 class Department
   attr_reader :department_name, :employees, :satisfactory_employees
 
@@ -19,12 +20,18 @@ class Department
 
   def distribute_raises(raise_budget)
     @employees.each do |e|
-      @satisfactory_employees << e if e.employee_satisfaction
+    @satisfactory_employees << e if e.employee_satisfaction
     end
     @satisfactory_employees.each {|d| d.employee_salary += (raise_budget / @satisfactory_employees.length)}
   end
 
 
-
-
+  def department_block_raises(raise_budget)
+    raises_array = []
+    @employees.each do |i|
+      raises_array << yield(i)
+      byebug
+      raises_array.each {|i| i.employee_salary += raise_budget / @raises_array.length}
+    end
+  end
 end

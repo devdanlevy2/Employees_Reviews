@@ -12,10 +12,8 @@ class Employee
     @employee_satisfaction = employee_satisfaction
   end
 
-  def employee_raise
-    if employee_satisfaction = "true"
-    @employee_salary = (@employee_salary * 1.1)
-    end
+  def employee_raise(raise_percentage)
+    @employee_salary = (@employee_salary * raise_percentage) + @employee_salary
   end
 
 

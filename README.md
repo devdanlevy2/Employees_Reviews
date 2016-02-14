@@ -1,12 +1,9 @@
 # Employee_Reviews
-##Track Employee Data, Departments, Assess Reviews, Assign Raises to Satisfactoroy Employees
+##Track Employee Data, Departments, Assess Reviews, Assign Raises to Satisfactory Employees
 
 ##Skills
-* Blocks operations
+* Block operations
 * test-driven development
 * regular expressions
 * Regex
 * keyword arguments
-
-
-
