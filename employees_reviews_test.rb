@@ -215,6 +215,10 @@ class EmployeesReviewsTest < Minitest::Test
       d.add_employee(f)
       d.add_employee(g)
       d.add_employee(h)
+      assert_equal false, e.employee_satisfaction
+      assert_equal true, f.employee_satisfaction
+      assert_equal false, g.employee_satisfaction
+      assert_equal true, h.employee_satisfaction
 
     end
 

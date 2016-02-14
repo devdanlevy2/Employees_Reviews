@@ -16,5 +16,20 @@ class Employee
     @employee_salary = (@employee_salary * raise_percentage) + @employee_salary
   end
 
-
+  def emp_comp_assessment
+    negative_count = 0
+      if @employees.employee_review.match(/"discussed", "concerns", "performance", "improvement", "technically", "but", "expected", "negative", "not", "inadequate"/)
+        negative_count +=1
+      end
+    positive_count = 0
+      if @employees.employee_review.match(/"asset", "pleasure", "always", "help", "ownership", "work", "effective", "developer", "workload"/)
+        positive_count +=1
+      end
+  end
+    if positive_count > negative_count
+      @employee_satisfaction = true
+    else
+      @employee_satisfaction = false
+    end
+  end
 end
